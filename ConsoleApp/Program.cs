@@ -1,9 +1,10 @@
 ﻿// See https://aka.ms/new-console-template for more information
 
 
-using ConsoleApp;
-using MicroUseFullFunctions;
+using MicroUseFullFunctions.Output;
+using MicroUseFullFunctions.Utility;
 using System.Diagnostics;
+using ConsoleApp;
 
 var alist = new List<Test>();
 
@@ -21,6 +22,8 @@ Debug.WriteLine(testString);
 var aList = testString.RemoveString( new string[] { "blah", "1","0", "k", "sai"});
 
 Debug.WriteLine(aList);
+
+
 
 
 

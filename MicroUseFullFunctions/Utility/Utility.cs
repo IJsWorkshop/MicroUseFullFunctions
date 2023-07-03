@@ -1,7 +1,6 @@
 ﻿using System.Diagnostics;
-using System.Reflection.Metadata.Ecma335;
 
-namespace MicroUseFullFunctions
+namespace MicroUseFullFunctions.Utility
 {
     public static class Utility
     {
@@ -50,7 +49,7 @@ namespace MicroUseFullFunctions
         /// <param name="word"></param>
         /// <param name="wordsToRemove"></param>
         /// <returns></returns>
-        public static string RemoveString(this string word , string[] wordsToRemove)
+        public static string RemoveString(this string word, string[] wordsToRemove)
         {
             for (var ndx = 0; ndx < wordsToRemove.Length; ndx++)
             {

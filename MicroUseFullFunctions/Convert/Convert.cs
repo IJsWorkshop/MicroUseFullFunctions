@@ -1,4 +1,4 @@
-﻿namespace MicroUseFullFunctions
+﻿namespace MicroUseFullFunctions.Convert
 {
     public static class Convert
     {
@@ -12,7 +12,7 @@
         {
             var dstring = datestring;
 
-            if (System.DateTime.TryParse(datestring, out System.DateTime dTime))
+            if (DateTime.TryParse(datestring, out DateTime dTime))
             {
                 dstring = dTime.ToString(format);
             }

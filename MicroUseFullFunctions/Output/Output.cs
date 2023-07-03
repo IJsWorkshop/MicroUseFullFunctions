@@ -1,15 +1,15 @@
 ﻿using System.Diagnostics;
 
 
-namespace MicroUseFullFunctions
+namespace MicroUseFullFunctions.Output
 {
     public static class Output
     {
         public static void ToDebugWindow<T>(this List<T> list)
         {
-            foreach (var lis in list) 
+            foreach (var lis in list)
             {
-                foreach (var prop in lis.GetType().GetProperties()) 
+                foreach (var prop in lis.GetType().GetProperties())
                 {
                     Debug.WriteLine($"{prop.Name} : {prop.GetValue(lis, null)} ");
                 }
