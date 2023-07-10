@@ -1,9 +1,7 @@
-﻿// See https://aka.ms/new-console-template for more information
-
-
-using MicroUseFullFunctions.Output;
+﻿using static MicroUseFullFunctions.Encryption.AesEncryption;
+using static System.Diagnostics.Debug;
 using MicroUseFullFunctions.Utility;
-using System.Diagnostics;
+using MicroUseFullFunctions.Output;
 using ConsoleApp;
 
 var alist = new List<Test>();
@@ -17,13 +15,121 @@ alist.ToDebugWindow();
 
 string testString = "said sai 1234567890-abcdefghijk blah blah blah blah";
 
-Debug.WriteLine(testString);
+WriteLine(testString);
 
 var aList = testString.RemoveString( new string[] { "blah", "1","0", "k", "sai"});
 
-Debug.WriteLine(aList);
+WriteLine(aList);
+
+// simple encode/decode example
+string plainText = "This text will be encrypted";
+
+// produce keys
+var AESkeys = GetAESKeys();
+
+// encrypt
+byte[] encryptedData = plainText.Encrypt(AESkeys);
+var encryptoString = encryptedData.ToBase64();
+
+// decrypt
+string decryptedText = encryptedData.Decrypt(AESkeys);
+
+// display
+WriteLine("");
+WriteLine("Plain Text: " + plainText );
+WriteLine("Encrypted Data: " + encryptoString );
+WriteLine("Decrypted Text: " + decryptedText );
+WriteLine("");
 
 
+var cryptolist = new List<Test>() { 
+new Test { Name = "Ian", DescriptionByte = "blahb".Encrypt(AESkeys), Height = "10" },
+new Test { Name = "Steve", DescriptionByte = "blasdfdsfdsfsdfb".Encrypt(AESkeys), Height = "5" },
+new Test { Name = "John", DescriptionByte = "bsdfsdflahb".Encrypt(AESkeys), Height = "20" },
+new Test { Name = "Ian", DescriptionByte = "blahb".Encrypt(AESkeys), Height = "10" },
+new Test { Name = "Steve", DescriptionByte = "blasdfdsfdsfsdfb".Encrypt(AESkeys), Height = "5" },
+new Test { Name = "John", DescriptionByte = "bsdfsdflahb".Encrypt(AESkeys), Height = "20" },
+new Test { Name = "Ian", DescriptionByte = "blahb".Encrypt(AESkeys), Height = "10" },
+new Test { Name = "Steve", DescriptionByte = "blasdfdsfdsfsdfb".Encrypt(AESkeys), Height = "5" },
+new Test { Name = "John", DescriptionByte = "bsdfsdflahb".Encrypt(AESkeys), Height = "20" },
+new Test { Name = "Ian", DescriptionByte = "blahb".Encrypt(AESkeys), Height = "10" },
+new Test { Name = "Steve", DescriptionByte = "blasdfdsfdsfsdfb".Encrypt(AESkeys), Height = "5" },
+new Test { Name = "John", DescriptionByte = "bsdfsdflahb".Encrypt(AESkeys), Height = "20" },
+new Test { Name = "Ian", DescriptionByte = "blahb".Encrypt(AESkeys), Height = "10" },
+new Test { Name = "Steve", DescriptionByte = "blasdfdsfdsfsdfb".Encrypt(AESkeys), Height = "5" },
+new Test { Name = "John", DescriptionByte = "bsdfsdflahb".Encrypt(AESkeys), Height = "20" },
+new Test { Name = "Ian", DescriptionByte = "blahb".Encrypt(AESkeys), Height = "10" },
+new Test { Name = "Steve", DescriptionByte = "blasdfdsfdsfsdfb".Encrypt(AESkeys), Height = "5" },
+new Test { Name = "John", DescriptionByte = "bsdfsdflahb".Encrypt(AESkeys), Height = "20" },
+new Test { Name = "Ian", DescriptionByte = "blahb".Encrypt(AESkeys), Height = "10" },
+new Test { Name = "Steve", DescriptionByte = "blasdfdsfdsfsdfb".Encrypt(AESkeys), Height = "5" },
+new Test { Name = "John", DescriptionByte = "bsdfsdflahb".Encrypt(AESkeys), Height = "20" },
+new Test { Name = "Ian", DescriptionByte = "blahb".Encrypt(AESkeys), Height = "10" },
+new Test { Name = "Steve", DescriptionByte = "blasdfdsfdsfsdfb".Encrypt(AESkeys), Height = "5" },
+new Test { Name = "John", DescriptionByte = "bsdfsdflahb".Encrypt(AESkeys), Height = "20" },
+new Test { Name = "Ian", DescriptionByte = "blahb".Encrypt(AESkeys), Height = "10" },
+new Test { Name = "Steve", DescriptionByte = "blasdfdsfdsfsdfb".Encrypt(AESkeys), Height = "5" },
+new Test { Name = "John", DescriptionByte = "bsdfsdflahb".Encrypt(AESkeys), Height = "20" },
+new Test { Name = "Ian", DescriptionByte = "blahb".Encrypt(AESkeys), Height = "10" },
+new Test { Name = "Steve", DescriptionByte = "blasdfdsfdsfsdfb".Encrypt(AESkeys), Height = "5" },
+new Test { Name = "John", DescriptionByte = "bsdfsdflahb".Encrypt(AESkeys), Height = "20" },
+new Test { Name = "Ian", DescriptionByte = "blahb".Encrypt(AESkeys), Height = "10" },
+new Test { Name = "Steve", DescriptionByte = "blasdfdsfdsfsdfb".Encrypt(AESkeys), Height = "5" },
+new Test { Name = "John", DescriptionByte = "bsdfsdflahb".Encrypt(AESkeys), Height = "20" },
+new Test { Name = "Ian", DescriptionByte = "blahb".Encrypt(AESkeys), Height = "10" },
+new Test { Name = "Steve", DescriptionByte = "blasdfdsfdsfsdfb".Encrypt(AESkeys), Height = "5" },
+new Test { Name = "John", DescriptionByte = "bsdfsdflahb".Encrypt(AESkeys), Height = "20" },
+new Test { Name = "Ian", DescriptionByte = "blahb".Encrypt(AESkeys), Height = "10" },
+new Test { Name = "Steve", DescriptionByte = "blasdfdsfdsfsdfb".Encrypt(AESkeys), Height = "5" },
+new Test { Name = "John", DescriptionByte = "bsdfsdflahb".Encrypt(AESkeys), Height = "20" },
+new Test { Name = "Ian", DescriptionByte = "blahb".Encrypt(AESkeys), Height = "10" },
+new Test { Name = "Steve", DescriptionByte = "blasdfdsfdsfsdfb".Encrypt(AESkeys), Height = "5" },
+new Test { Name = "John", DescriptionByte = "bsdfsdflahb".Encrypt(AESkeys), Height = "20" },
+new Test { Name = "Ian", DescriptionByte = "blahb".Encrypt(AESkeys), Height = "10" },
+new Test { Name = "Steve", DescriptionByte = "blasdfdsfdsfsdfb".Encrypt(AESkeys), Height = "5" },
+new Test { Name = "John", DescriptionByte = "bsdfsdflahb".Encrypt(AESkeys), Height = "20" },
+new Test { Name = "Ian", DescriptionByte = "blahb".Encrypt(AESkeys), Height = "10" },
+new Test { Name = "Steve", DescriptionByte = "blasdfdsfdsfsdfb".Encrypt(AESkeys), Height = "5" },
+new Test { Name = "John", DescriptionByte = "bsdfsdflahb".Encrypt(AESkeys), Height = "20" },
+new Test { Name = "Ian", DescriptionByte = "blahb".Encrypt(AESkeys), Height = "10" },
+new Test { Name = "Steve", DescriptionByte = "blasdfdsfdsfsdfb".Encrypt(AESkeys), Height = "5" },
+new Test { Name = "John", DescriptionByte = "bsdfsdflahb".Encrypt(AESkeys), Height = "20" },
+new Test { Name = "Ian", DescriptionByte = "blahb".Encrypt(AESkeys), Height = "10" },
+new Test { Name = "Steve", DescriptionByte = "blasdfdsfdsfsdfb".Encrypt(AESkeys), Height = "5" },
+new Test { Name = "John", DescriptionByte = "bsdfsdflahb".Encrypt(AESkeys), Height = "20" },
+new Test { Name = "Ian", DescriptionByte = "blahb".Encrypt(AESkeys), Height = "10" },
+new Test { Name = "Steve", DescriptionByte = "blasdfdsfdsfsdfb".Encrypt(AESkeys), Height = "5" },
+new Test { Name = "John", DescriptionByte = "bsdfsdflahb".Encrypt(AESkeys), Height = "20" },
+new Test { Name = "Ian", DescriptionByte = "blahb".Encrypt(AESkeys), Height = "10" },
+new Test { Name = "Steve", DescriptionByte = "blasdfdsfdsfsdfb".Encrypt(AESkeys), Height = "5" },
+new Test { Name = "John", DescriptionByte = "bsdfsdflahb".Encrypt(AESkeys), Height = "20" },
+new Test { Name = "Ian", DescriptionByte = "blahb".Encrypt(AESkeys), Height = "10" },
+new Test { Name = "Steve", DescriptionByte = "blasdfdsfdsfsdfb".Encrypt(AESkeys), Height = "5" },
+new Test { Name = "John", DescriptionByte = "bsdfsdflahb".Encrypt(AESkeys), Height = "20" },
+new Test { Name = "Ian", DescriptionByte = "blahb".Encrypt(AESkeys), Height = "10" },
+new Test { Name = "Steve", DescriptionByte = "blasdfdsfdsfsdfb".Encrypt(AESkeys), Height = "5" },
+new Test { Name = "John", DescriptionByte = "bsdfsdflahb".Encrypt(AESkeys), Height = "20" },
+new Test { Name = "Ian", DescriptionByte = "blahb".Encrypt(AESkeys), Height = "10" },
+new Test { Name = "Steve", DescriptionByte = "blasdfdsfdsfsdfb".Encrypt(AESkeys), Height = "5" },
+new Test { Name = "John", DescriptionByte = "bsdfsdflahb".Encrypt(AESkeys), Height = "20" },
+new Test { Name = "Ian", DescriptionByte = "blahb".Encrypt(AESkeys), Height = "10" },
+new Test { Name = "Steve", DescriptionByte = "blasdfdsfdsfsdfb".Encrypt(AESkeys), Height = "5" },
+new Test { Name = "John", DescriptionByte = "bsdfsdflahb".Encrypt(AESkeys), Height = "20" },
+new Test { Name = "Ian", DescriptionByte = "blahb".Encrypt(AESkeys), Height = "10" },
+new Test { Name = "Steve", DescriptionByte = "blasdfdsfdsfsdfb".Encrypt(AESkeys), Height = "5" },
+new Test { Name = "John", DescriptionByte = "bsdfsdflahb".Encrypt(AESkeys), Height = "20" },
+new Test { Name = "Ian", DescriptionByte = "blahb".Encrypt(AESkeys), Height = "10" },
+new Test { Name = "Steve", DescriptionByte = "blasdfdsfdsfsdfb".Encrypt(AESkeys), Height = "5" },
+new Test { Name = "John", DescriptionByte = "bsdfsdflahb".Encrypt(AESkeys), Height = "20" },
+new Test { Name = "Ian", DescriptionByte = "blahb".Encrypt(AESkeys), Height = "10" },
+new Test { Name = "Steve", DescriptionByte = "blasdfdsfdsfsdfb".Encrypt(AESkeys), Height = "5" },
+new Test { Name = "John", DescriptionByte = "bsdfsdflahb".Encrypt(AESkeys), Height = "20" }};
 
+cryptolist.ToDebugWindow();
 
+// decrypt
+foreach (var rec in cryptolist) rec.Description = $"decrypted : {rec.DescriptionByte.Decrypt(AESkeys)}";
+
+// display
+cryptolist.ToDebugWindow();
 

@@ -7,6 +7,8 @@ namespace ConsoleApp
 
         public string? Description { get; set; } = default;
 
+        public byte[]? DescriptionByte { get; set; } = new byte[] { };
+
         public string? Height { get; set; } = default;
 
     }
